@@ -44,4 +44,14 @@ public class ScoreManager : MonoBehaviour
             coinText.text = "Coins: " + coins;
         }
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
 }

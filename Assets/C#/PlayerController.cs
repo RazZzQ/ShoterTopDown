@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 mousePosition;
 
+    public ShooterGameEndManager gameEndManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,12 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        // Reiniciar el juego
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-
-        // Reinicia la partida, carga una escena de juego, etc.
-        currentHealth = maxHealth;
-        UpdateHealthText();
+        gameEndManager.EndGame();
     }
 
     void UpdateHealthText()
