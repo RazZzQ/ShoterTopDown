@@ -10,11 +10,10 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public TMP_Text healthText; // Referencia al TextMeshPro para mostrar la vida del jugador
+    public SubmitShooterTopDown SubmitShooter;
 
     private Rigidbody2D rb;
     private Vector2 mousePosition;
-
-    public ShooterGameEndManager gameEndManager;
 
     void Start()
     {
@@ -80,7 +79,8 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        gameEndManager.EndGame();
+        Time.timeScale = 0.0f;
+        SubmitShooter.gameObject.SetActive(true);
     }
 
     void UpdateHealthText()
